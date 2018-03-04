@@ -59,17 +59,18 @@ $conditions_week = $forecast->getForecastWeek($lat, $lon);
 echo "\n\nConditions this week:\n";
 
 $ahead = array(
-"date DayOfWeek :",
+"date DayOfWeek",
 "T max",
 "T min",
-"precip",
-"precip %",
+"precip, %",
 "summary",
 );
 
 $sep = PHP_EOL . "\t";
-$line = implode( $sep, $ahead );
-//print $line . PHP_EOL;
+#$line = implode( $sep, $ahead );
+#print $line
+#. PHP_EOL
+#. PHP_EOL ;
 
 foreach($conditions_week as $conditions) {
     $dow = $conditions->getTime('D');
@@ -82,10 +83,10 @@ foreach($conditions_week as $conditions) {
     . $dow . ': '	. $sep
     . $conditions->getMaxTemperature()	. $sep
     . $conditions->getMinTemperature()	. $sep
-    . $prec   . $sep
-    . $probab	. " %" . $sep
+    . $prec   . " "
+    . $probab	. "%" . $sep
     . $conditions->getSummary()	. $sep
-    ;
+    . PHP_EOL;
 
 }
 
