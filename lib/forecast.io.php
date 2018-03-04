@@ -1,5 +1,7 @@
 <?php
 
+define( "DEBUG", false );
+
 /**
  * Helper Class for forecast.io webservice
  */
@@ -72,9 +74,11 @@ class ForecastIO
                 $latitude . ',' . $longitude .
                 ($timestamp ? ',' . $timestamp : '') .
                 '?units=' . $this->units . '&lang=' . $this->language .
-
                 ($exclusions ? '&exclude=' . $exclusions : '');
 
+	    if( DEBUG ) {
+		print "url: " .$request_url .PHP_EOL;
+	    }
             /**
              * Use Buffer to cache API-requests if initialized
              * (if not, just get the latest data)
@@ -86,7 +90,8 @@ class ForecastIO
                 $cache = new Buffer();
                 $content = $cache->data($request_url);
             } else {
-                $content = file_get_contents($request_url);
+#                $content = file_get_contents($request_url);
+                $content = curl_get($request_url, __FILE__, DEBUG );
             }
 
         } else {
