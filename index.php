@@ -56,7 +56,7 @@ print "
 
 $conditions_week = $forecast->getForecastWeek($lat, $lon);
 
-echo "\n\nConditions this week:\n";
+//echo "\n\nConditions this week:\n";
 
 $ahead = array(
 "date DayOfWeek",
