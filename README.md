@@ -14,3 +14,14 @@ To find out how it works check out the example.php
 Web: [www.tricd.de](http://www.tricd.de)
 
 Email: tobias.redmann@tricd.de
+
+
+## prerequisites
+* php-cli
+* php-curl
+
+## setup
+* cp secret-sample.ini secret.ini
+* editor secret.ini 
+** API key
+** lat, lon of disered location
